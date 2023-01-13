@@ -294,6 +294,16 @@ class Cluster(models.Resource):
     return network.get_subnetwork(m.group(1), m.group(2), m.group(3))
 
   @property
+  def cluster_ca_certificate(self) -> str:
+    return self._resource_data['masterAuth']['clusterCaCertificate']
+
+  @property
+  def endpoint(self) -> Optional[str]:
+    if 'endpoint' not in self._resource_data:
+      return None
+    return self._resource_data['endpoint']
+
+  @property
   def is_private(self) -> bool:
     return 'privateClusterConfig' in self._resource_data
 
