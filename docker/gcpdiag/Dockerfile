@@ -27,3 +27,4 @@ ENTRYPOINT ["/usr/bin/entrypoint.sh"]
 COPY dist/Pipfile.lock /opt/gcpdiag/Pipfile.lock
 RUN cd /opt/gcpdiag && env PIPENV_VENV_IN_PROJECT=1 pipenv install --ignore-pipfile
 COPY dist /opt/gcpdiag
+s
